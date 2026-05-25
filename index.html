@@ -1,439 +1,924 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta
-        name="description"
-        content="Student portfolio template with placeholder content for profile, skills, projects, education, and contact details."
-    >
-    <title>[Your Name]</title>
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap"
-        rel="stylesheet"
-    >
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>
+    Shreya Bandodkar | Full-Stack & AI Engineer
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #050816;
+      --card: rgba(17, 25, 40, 0.75);
+      --primary: #8b5cf6;
+      --secondary: #06b6d4;
+      --text: #ffffff;
+      --muted: #b4bcd0;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+
+      background:
+        radial-gradient(circle at top left,
+          rgba(139, 92, 246, 0.25),
+          transparent 30%),
+
+        radial-gradient(circle at bottom right,
+          rgba(6, 182, 212, 0.25),
+          transparent 30%),
+
+        linear-gradient(to bottom right,
+          #050816,
+          #0f172a);
+
+      color: var(--text);
+
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      width: 100%;
+      height: 100%;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+      background-size: 50px 50px;
+
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 22px 8%;
+
+      backdrop-filter: blur(14px);
+
+      background: rgba(5, 8, 22, 0.7);
+
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+
+      background: linear-gradient(90deg,
+          #8b5cf6,
+          #06b6d4);
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: var(--muted);
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: white;
+    }
+
+    section {
+      padding: 120px 8%;
+    }
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+
+      padding: 12px 20px;
+
+      border-radius: 999px;
+
+      background: rgba(139, 92, 246, 0.12);
+
+      border: 1px solid rgba(139, 92, 246, 0.3);
+
+      color: #d8b4fe;
+
+      font-size: 14px;
+
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg,
+          #8b5cf6,
+          #06b6d4);
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h2 {
+      font-size: 30px;
+      color: #d1d5db;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      color: var(--muted);
+
+      font-size: 18px;
+
+      line-height: 1.8;
+
+      max-width: 850px;
+
+      margin: auto;
+    }
+
+    .hero-buttons {
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 15px 32px;
+
+      border-radius: 14px;
+
+      margin: 10px;
+
+      background: linear-gradient(90deg,
+          #8b5cf6,
+          #06b6d4);
+
+      color: white;
+
+      font-weight: 600;
+
+      transition: 0.3s ease;
+
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .section-title {
+      text-align: center;
+
+      font-size: 46px;
+
+      margin-bottom: 70px;
+
+      font-weight: 800;
+    }
+
+    .section-title span {
+      background: linear-gradient(90deg,
+          #8b5cf6,
+          #06b6d4);
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      backdrop-filter: blur(18px);
+
+      border-radius: 24px;
+
+      padding: 35px;
+
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+
+      border-color: rgba(139, 92, 246, 0.4);
+
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .card h4 {
+      color: #c4b5fd;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-top: 15px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skills span {
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      padding: 12px 18px;
+
+      border-radius: 999px;
+
+      color: #dbeafe;
+
+      font-size: 14px;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-links {
+      margin-top: 30px;
+    }
+
+    .contact-links a {
+      display: inline-block;
+
+      padding: 14px 24px;
+
+      margin: 10px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,0.05);
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      transition: 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      background: linear-gradient(90deg,
+          #8b5cf6,
+          #06b6d4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #94a3b8;
+    }
+
+    @media(max-width:768px) {
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+    }
+  </style>
+
 </head>
+
 <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <!-- Template guide:
-         1. Replace all bracketed placeholder text with your own details.
-         2. Update colors, fonts, and spacing in assets/css/style.css.
-         3. Put your image at assets/images/profile-photo.jpg
-            or change the src below to match your image file name.
-         4. Update the initials in the logo and image fallback from [YN] to your initials.
-         5. Put your resume PDF at assets/docs/resume.pdf
-            or change the resume link below to match your file name.
-    -->
+  <!-- NAVBAR -->
 
-    <header class="site-header">
-        <nav class="site-nav" aria-label="Primary navigation">
-            <a class="n-logo" href="#home" aria-label="Go to homepage section">
-                <span aria-hidden="true" class="n-seal">[YN]</span>
-                <span class="n-text">
-                    <span class="n-name">[Your Name]</span>
-                    <span class="n-sub">[Your Role or Title]</span>
-                </span>
-            </a>
+  <nav>
 
-            <button
-                class="nav-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="primary-menu"
-                aria-label="Open navigation menu"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <div class="logo">
+      Shreya B.
+    </div>
 
-            <ul class="nav-menu" id="primary-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a class="n-hire" href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-    <main id="main-content" class="site-main">
-        <section id="home" class="hero-section">
-            <div class="hero-glow" aria-hidden="true"></div>
-            <div class="hero-glow2" aria-hidden="true"></div>
-            <div class="hero-grid-lines" aria-hidden="true"></div>
+  </nav>
 
-            <div class="hero-wrap">
-                <div class="hero-content">
-                    <p class="hero-tag">
-                        <span class="hero-tag-line" aria-hidden="true"></span>
-                        [Current Role or Target Role] | [City, Country]
-                    </p>
-                    <h1 class="hero-h1">[Your<br><span>Name]</span></h1>
-                    <div class="hero-divider" aria-hidden="true"></div>
-                    <p class="hero-tagline">[Specialization 1] | [Specialization 2] | [Specialization 3]</p>
-                    <p class="hero-desc">
-                        [Write a short 2-3 sentence introduction. Summarize who you are, what you do, and the kind of
-                        work or opportunities you are looking for.]
-                    </p>
+  <!-- HERO -->
 
-                    <div class="hero-kpis" aria-label="Career highlights">
-                        <div class="kpi"><span class="kpi-val">[X+]</span><span class="kpi-lbl">Years / Semesters</span></div>
-                        <div class="kpi"><span class="kpi-val">[X+]</span><span class="kpi-lbl">Projects Completed</span></div>
-                        <div class="kpi"><span class="kpi-val">[X%]</span><span class="kpi-lbl">Key Achievement</span></div>
-                        <div class="kpi"><span class="kpi-val">[X]</span><span class="kpi-lbl">Certifications / Awards</span></div>
-                    </div>
+  <section class="hero">
 
-                    <div class="hero-btns">
-                        <a href="#contact" class="btn-a">Contact Me &rarr;</a>
-                        <a href="#projects" class="btn-b">View Projects</a>
-                    </div>
-                </div>
+    <div class="hero-content">
 
-                <aside class="portrait-col" aria-label="Profile summary">
-                    <div class="portrait-stage">
-                        <div class="pframe">
-                            <!-- Image instructions:
-                                 Option A: keep your image name as profile-photo.jpg and place it in assets/images/
-                                 Option B: use any image name and update the src path below
-                            -->
-                            <img
-                                class="portrait-image"
-                                src="assets/images/profile-photo.jpg"
-                                alt="Portrait placeholder"
-                                data-fallback-target="portrait-fallback"
-                            >
-                            <div aria-hidden="true" class="pframe-init" id="portrait-fallback">[YN]</div>
-                            <div class="pframe-overlay" aria-hidden="true"></div>
-                        </div>
-                        <div class="corner c-tl" aria-hidden="true"></div>
-                        <div class="corner c-tr" aria-hidden="true"></div>
-                        <div class="corner c-bl" aria-hidden="true"></div>
-                        <div class="corner c-br" aria-hidden="true"></div>
-                        <div class="avail-chip">
-                            <span class="avail-dot" aria-hidden="true"></span>
-                            <span class="avail-txt">Open to Opportunities</span>
-                        </div>
-                    </div>
+      <div class="hero-tag">
+        Full-Stack Engineer • AI Developer • Cloud Engineer
+      </div>
 
-                    <div class="badge-row" aria-label="Key qualifications">
-                        <span class="pbadge">[Degree]</span>
-                        <span class="pbadge">[Certification]</span>
-                        <span class="pbadge">[Specialty]</span>
-                        <span class="pbadge">[Focus Area]</span>
-                    </div>
-                </aside>
-            </div>
-        </section>
+      <h1>
+        Hi, I'm
+        <span class="gradient">
+          Shreya Shailesh Bandodkar
+        </span>
+      </h1>
 
-        <div class="hr" aria-hidden="true"></div>
+      <h2>
+        Software Engineer | Full-Stack & AI Developer
+      </h2>
 
-        <section class="sec" id="about">
-            <div class="sec-max">
-                <div class="overline">About</div>
-                <h2 class="sec-title">About <em>Me</em></h2>
+      <p>
+        5+ years of experience in full-stack software engineering,
+        cloud technologies, and AI-driven application development
+        across enterprise and startup environments.
+      </p>
 
-                <div class="about-grid">
-                    <div>
-                        <div class="about-body">
-                            <p>[Paragraph 1: Introduce your background, degree, or professional area.]</p>
-                            <p>[Paragraph 2: Describe your strengths, tools, or interests.]</p>
-                            <p>[Paragraph 3: Explain your goals, values, or the impact you want to make.]</p>
-                        </div>
+      <div class="hero-buttons">
 
-                        <div class="about-nums">
-                            <div class="astat"><span class="astat-n">[X+]</span><span class="astat-l">Projects Built</span></div>
-                            <div class="astat"><span class="astat-n">[X]</span><span class="astat-l">Internships / Roles</span></div>
-                            <div class="astat"><span class="astat-n">[X%]</span><span class="astat-l">Improvement / Result</span></div>
-                            <div class="astat"><span class="astat-n">[X+]</span><span class="astat-l">Tools Learned</span></div>
-                        </div>
-                    </div>
+        <a href="#projects" class="btn">
+          View Projects
+        </a>
 
-                    <div class="cert-stack" aria-label="Certifications and highlights">
-                        <article class="crt">
-                            <div class="crt-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg></div>
-                            <div>
-                                <div class="crt-name">[Certification or Achievement]</div>
-                                <div class="crt-sub">[Provider or Context]</div>
-                            </div>
-                            <span class="pill pill-on">Active</span>
-                        </article>
+        <a href="assets/docs/resume.pdf"
+          target="_blank"
+          class="btn btn-outline">
+          Download Resume
+        </a>
 
-                        <article class="crt">
-                            <div class="crt-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
-                            <div>
-                                <div class="crt-name">[Course or Program]</div>
-                                <div class="crt-sub">[School / Organization]</div>
-                            </div>
-                            <span class="pill pill-on">Active</span>
-                        </article>
+      </div>
 
-                        <article class="crt">
-                            <div class="crt-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                            <div>
-                                <div class="crt-name">[Technical Skill or Credential]</div>
-                                <div class="crt-sub">[Platform / Institute]</div>
-                            </div>
-                            <span class="pill pill-on">Active</span>
-                        </article>
+    </div>
 
-                        <article class="crt">
-                            <div class="crt-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                            <div>
-                                <div class="crt-name">[Upcoming Goal or Certification]</div>
-                                <div class="crt-sub">[Expected Date or Status]</div>
-                            </div>
-                            <span class="pill pill-wip">In Progress</span>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
+  </section>
 
-        <div class="hr" aria-hidden="true"></div>
+  <!-- ABOUT -->
 
-        <section class="sec alt" id="skills">
-            <div class="sec-max">
-                <div class="overline">Skills</div>
-                <h2 class="sec-title">Core <em>Competencies</em></h2>
+  <section id="about">
 
-                <div class="skill-row">
-                    <article class="sk">
-                        <div class="sk-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-                        <h3 class="sk-cat">[Category One]</h3>
-                        <div class="tags">
-                            <span class="tg">[Skill 1]</span>
-                            <span class="tg">[Skill 2]</span>
-                            <span class="tg">[Skill 3]</span>
-                            <span class="tg">[Skill 4]</span>
-                            <span class="tg">[Skill 5]</span>
-                        </div>
-                    </article>
+    <h2 class="section-title">
+      About <span>Me</span>
+    </h2>
 
-                    <article class="sk">
-                        <div class="sk-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                        <h3 class="sk-cat">[Category Two]</h3>
-                        <div class="tags">
-                            <span class="tg">[Skill 1]</span>
-                            <span class="tg">[Skill 2]</span>
-                            <span class="tg">[Skill 3]</span>
-                            <span class="tg">[Skill 4]</span>
-                            <span class="tg">[Skill 5]</span>
-                        </div>
-                    </article>
+    <div class="card">
 
-                    <article class="sk">
-                        <div class="sk-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                        <h3 class="sk-cat">[Category Three]</h3>
-                        <div class="tags">
-                            <span class="tg">[Skill 1]</span>
-                            <span class="tg">[Skill 2]</span>
-                            <span class="tg">[Skill 3]</span>
-                            <span class="tg">[Skill 4]</span>
-                            <span class="tg">[Skill 5]</span>
-                        </div>
-                    </article>
-                </div>
+      <p>
+        Software Engineer with strong expertise in scalable
+        full-stack application development, cloud-native systems,
+        AI/ML-powered platforms, distributed systems,
+        and real-time analytics applications.
+      </p>
 
-                <div class="tools-strip" aria-label="Tools and technology">
-                    <span class="t-lbl">Tools &amp; Tech</span>
-                    <span class="tool">[Tool 1]</span>
-                    <span class="tool">[Tool 2]</span>
-                    <span class="tool">[Tool 3]</span>
-                    <span class="tool">[Tool 4]</span>
-                    <span class="tool">[Tool 5]</span>
-                    <span class="tool">[Tool 6]</span>
-                </div>
-            </div>
-        </section>
+      <br>
 
-        <div class="hr" aria-hidden="true"></div>
+      <p>
+        Skilled in building enterprise applications using React,
+        TypeScript, Node.js, Java, FastAPI, Docker, Kafka,
+        AWS, Azure, and GCP Cloud Run.
+      </p>
 
-        <section class="sec" id="experience">
-            <div class="sec-max">
-                <div class="overline">Experience</div>
-                <h2 class="sec-title">Professional <em>Experience</em></h2>
+      <br>
 
-                <div class="xp-wrap">
-                    <article class="xp">
-                        <div class="xp-header">
-                            <h3 class="xp-role">[Job Title / Internship Role]</h3>
-                            <span class="xp-period">[Month Year - Month Year]</span>
-                        </div>
-                        <p class="xp-co"><strong>[Company / Organization]</strong> | [Location] | [Type]</p>
-                        <ul class="xp-pts">
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                        </ul>
-                    </article>
+      <p>
+        Experienced in AI-driven systems using XGBoost,
+        LangChain, and Gemini 2.5 Flash with explainable AI
+        and real-time analytics capabilities.
+      </p>
 
-                    <article class="xp">
-                        <div class="xp-header">
-                            <h3 class="xp-role">[Job Title / Leadership Role]</h3>
-                            <span class="xp-period">[Month Year - Month Year]</span>
-                        </div>
-                        <p class="xp-co"><strong>[Company / Organization]</strong> | [Location]</p>
-                        <ul class="xp-pts">
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                        </ul>
-                    </article>
+    </div>
 
-                    <article class="xp">
-                        <div class="xp-header">
-                            <h3 class="xp-role">[Earlier Experience or Campus Position]</h3>
-                            <span class="xp-period">[Month Year - Month Year]</span>
-                        </div>
-                        <p class="xp-co"><strong>[Company / Organization]</strong> | [Location]</p>
-                        <ul class="xp-pts">
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                            <li>[Achievement or responsibility written as an action + result.]</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
+  </section>
 
-        <div class="hr" aria-hidden="true"></div>
+  <!-- SKILLS -->
 
-        <section class="sec alt" id="projects">
-            <div class="sec-max">
-                <div class="overline">Projects</div>
-                <h2 class="sec-title">Featured <em>Projects</em></h2>
+  <section id="skills">
 
-                <div class="pj-grid">
-                    <article class="pj">
-                        <p class="pj-type">[Project Type] | [Year]</p>
-                        <h3 class="pj-title">[Project Title]</h3>
-                        <p class="pj-org">[Course, Company, Personal, Hackathon, or Client Project]</p>
-                        <p class="pj-desc">
-                            [Describe the problem, what you built, the tools you used, and the outcome in 2-3 sentences.]
-                        </p>
-                    </article>
+    <h2 class="section-title">
+      Technical <span>Skills</span>
+    </h2>
 
-                    <article class="pj">
-                        <p class="pj-type">[Project Type] | [Year]</p>
-                        <h3 class="pj-title">[Project Title]</h3>
-                        <p class="pj-org">[Course, Company, Personal, Hackathon, or Client Project]</p>
-                        <p class="pj-desc">
-                            [Describe the problem, what you built, the tools you used, and the outcome in 2-3 sentences.]
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
+    <div class="card">
 
-        <div class="hr" aria-hidden="true"></div>
+      <div class="skills">
 
-        <section class="sec" id="education">
-            <div class="sec-max">
-                <div class="overline">Education</div>
-                <h2 class="sec-title">Education &amp; <em>Credentials</em></h2>
+        <span>Python</span>
+        <span>Java</span>
+        <span>C</span>
+        <span>C++</span>
+        <span>JavaScript</span>
+        <span>TypeScript</span>
+        <span>SQL</span>
+        <span>HTML</span>
+        <span>CSS</span>
 
-                <div class="edu-grid">
-                    <article class="edu">
-                        <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-                        <div>
-                            <h3 class="edu-deg">[Degree or Program Name]</h3>
-                            <p class="edu-sch">[University / School Name] | [Location]</p>
-                            <p class="edu-yr">[Start Year - End Year]</p>
-                        </div>
-                    </article>
+        <span>React</span>
+        <span>Angular</span>
+        <span>Tailwind CSS</span>
 
-                    <article class="edu">
-                        <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg></div>
-                        <div>
-                            <h3 class="edu-deg">[Certification / Secondary Degree / Diploma]</h3>
-                            <p class="edu-sch">[Institution Name] | [Location]</p>
-                            <p class="edu-yr">[Year or Duration]</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <span>Node.js</span>
+        <span>FastAPI</span>
+        <span>Flask</span>
+        <span>PostgreSQL</span>
 
-        <div class="hr" aria-hidden="true"></div>
+        <span>AWS</span>
+        <span>Azure</span>
+        <span>GCP Cloud Run</span>
+        <span>Docker</span>
 
-        <section class="sec alt" id="contact">
-            <div class="sec-max">
-                <div class="ct-grid">
-                    <div>
-                        <div class="overline">Contact</div>
-                        <h2 class="ct-hl">Let&apos;s build<br><em>something meaningful</em></h2>
-                        <div class="ct-avail"><span class="avail-dot" aria-hidden="true"></span>[Available Status] | [Location] | [Work Preference]</div>
-                        <p class="ct-sub">
-                            [Write one short message inviting recruiters, clients, or collaborators to contact you.]
-                        </p>
-                        <div class="ct-actions">
-                            <!-- Replace [yourname@email.com] below with the student's real email address. -->
-                            <a
-                                    href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=[yourname@email.com]&amp;su=Portfolio%20Inquiry"
-                                class="btn-a"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                Send a Message &rarr;
-                            </a>
-                            <a href="assets/docs/resume.pdf" class="btn-b" download="Your-Name-Resume.pdf">Download Resume</a>
-                        </div>
-                    </div>
+        <span>GitHub Actions</span>
+        <span>Apache Kafka</span>
 
-                    <div class="ct-links">
-                        <a class="ct-row" href="tel:+10000000000">
-                            <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                            <div><span class="ct-lbl">Phone</span><span class="ct-val">[Your Phone Number]</span></div>
-                        </a>
+        <span>XGBoost</span>
+        <span>LangChain</span>
+        <span>Gemini 2.5 Flash</span>
 
-                        <!-- Use the same real email here as the Send a Message button above. -->
-                        <a
-                            class="ct-row"
-                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=[yourname@email.com]&amp;su=Portfolio%20Inquiry"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                            <!-- Keep this visible email text the same as the Gmail link email above. -->
-                            <div><span class="ct-lbl">Email</span><span class="ct-val">[yourname@email.com]</span></div>
-                        </a>
+        <span>Linux</span>
+        <span>Unix</span>
+        <span>Git</span>
+        <span>VS Code</span>
+        <span>Jupyter Notebook</span>
+        <span>Vim</span>
 
-                        <a class="ct-row" href="https://linkedin.com/in/your-profile" target="_blank" rel="noreferrer">
-                            <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-                            <div><span class="ct-lbl">LinkedIn</span><span class="ct-val">[linkedin.com/in/your-profile]</span></div>
-                        </a>
+      </div>
 
-                        <a class="ct-row" href="https://github.com/your-username" target="_blank" rel="noreferrer">
-                            <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
-                            <div><span class="ct-lbl">GitHub</span><span class="ct-val">[github.com/your-username]</span></div>
-                        </a>
+    </div>
 
-                        <a class="ct-row" href="#contact">
-                            <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                            <div><span class="ct-lbl">Location</span><span class="ct-val">[City, State / Country]</span></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+  </section>
 
-    <footer class="site-footer">
-        <div class="ft-l">[Your Name]</div>
-        <div class="ft-c">&copy; <span id="current-year">2026</span> [Your Name] | All Rights Reserved</div>
-        <div class="ft-r">
-            <a href="#home">Top</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </footer>
+  <!-- EXPERIENCE -->
 
-    <script src="assets/js/main.js"></script>
+  <section id="experience">
+
+    <h2 class="section-title">
+      Work <span>Experience</span>
+    </h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>
+          Uplifty AI
+        </h3>
+
+        <h4>
+          iOS/Android Application Development Intern
+        </h4>
+
+        <p>
+          Sep 2025 – Dec 2025
+        </p>
+
+        <ul>
+
+          <li>
+            Built mobile application features using React
+            and TypeScript for Uplifty’s community platform.
+          </li>
+
+          <li>
+            Integrated Node.js REST APIs enabling seamless
+            real-time user interactions.
+          </li>
+
+          <li>
+            Participated in agile sprint planning, testing,
+            and code reviews to deliver production-ready features.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Tech Mahindra
+        </h3>
+
+        <h4>
+          Software Engineer
+        </h4>
+
+        <p>
+          Mumbai, India
+        </p>
+
+        <p>
+          Aug 2019 – June 2024
+        </p>
+
+        <ul>
+
+          <li>
+            Led full-stack redesign of AT&T’s enterprise application
+            using Node.js, Java microservices, and HTML/CSS/JavaScript.
+          </li>
+
+          <li>
+            Architected RESTful APIs and Azure-based data pipelines
+            in Linux environments.
+          </li>
+
+          <li>
+            Increased user engagement by 40% and reduced support
+            requests by 25%.
+          </li>
+
+          <li>
+            Improved system reliability by 50% through debugging,
+            testing workflows, and performance optimization.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">
+      Featured <span>Projects</span>
+    </h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>
+          ARIA – Autonomous Risk and Intelligent Agent
+        </h3>
+
+        <p>
+          Built an AI risk analyst that routes user queries
+          to domain-specific XGBoost models and generates
+          Gemini-powered risk explanations across healthcare,
+          fintech, and SaaS domains.
+        </p>
+
+        <br>
+
+        <p>
+          Achieved AUC-ROC scores of 0.99 for fraud detection
+          and 0.94 for churn prediction.
+        </p>
+
+        <br>
+
+        <p>
+          Tools Used:
+          XGBoost, Gemini 2.5 Flash, FastAPI,
+          React, Docker, GCP Cloud Run, Python
+        </p>
+
+        <br>
+
+        <a href="https://github.com/ssb1506"
+          target="_blank"
+          class="btn">
+          GitHub
+        </a>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          FeedPulse AI – Real-Time Social Media Analytics
+        </h3>
+
+        <p>
+          Developed a real-time analytics dashboard using Kafka
+          and React to stream and visualize social media
+          sentiment trends.
+        </p>
+
+        <br>
+
+        <p>
+          Built and deployed an AI-powered conversational
+          analytics assistant using Docker,
+          GitHub Actions CI/CD, and GCP Cloud Run.
+        </p>
+
+        <br>
+
+        <p>
+          Tools Used:
+          React, Tailwind CSS, Kafka, Docker Compose,
+          PyIceberg, GitHub Actions, GCP Cloud Run
+        </p>
+
+        <br>
+
+        <a href="https://github.com/ssb1506"
+          target="_blank"
+          class="btn">
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h2 class="section-title">
+      Education <span>& Research</span>
+    </h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>
+          Binghamton University
+        </h3>
+
+        <p>
+          Master of Science in Computer Science
+        </p>
+
+        <p>
+          State University of New York
+        </p>
+
+        <p>
+          GPA: 3.72 / 4.00
+        </p>
+
+        <p>
+          Relevant Coursework:
+          Distributed Systems, Programming Languages,
+          Systems Programming
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          BITS Pilani
+        </h3>
+
+        <p>
+          Master of Technology in Software Systems
+        </p>
+
+        <p>
+          IoT Specialization
+        </p>
+
+        <p>
+          Relevant Coursework:
+          Cyber Security, Computer Networks,
+          Embedded System Design
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Xavier Institute of Engineering
+        </h3>
+
+        <p>
+          Bachelor of Engineering in Electronics
+          and Telecommunications
+        </p>
+
+        <p>
+          Mahim, Mumbai
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PUBLICATIONS -->
+
+  <section id="publications">
+
+    <h2 class="section-title">
+      Publications <span>& Awards</span>
+    </h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>
+          Publications
+        </h3>
+
+        <p>
+          Ahire, N., Bandodkar, S., et al. (2019).
+          IoT-Based Industrial Parameter Monitoring System.
+        </p>
+
+        <br>
+
+        <p>
+          Published in International Journal of Information
+          and Computing Science and Parmana Research Journal.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h3>
+          Awards
+        </h3>
+
+        <p>
+          🏆 Pat on Back Award for Exceptional Performance
+        </p>
+
+        <br>
+
+        <p>
+          🏆 Bravo Award for Best Working Employee
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="section-title">
+      Let's <span>Connect</span>
+    </h2>
+
+    <div class="card contact">
+
+      <p>
+        📍 Binghamton, New York
+      </p>
+
+      <br>
+
+      <p>
+        📧 shreyabandodkar1506@gmail.com
+      </p>
+
+      <br>
+
+      <p>
+        📞 (607) 374-9149
+      </p>
+
+      <div class="contact-links">
+
+        <a href="https://www.linkedin.com/in/shreyabandodkar"
+          target="_blank">
+          LinkedIn
+        </a>
+
+        <a href="https://github.com/ssb1506"
+          target="_blank">
+          GitHub
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Shreya Shailesh Bandodkar • Portfolio Website
+
+  </footer>
+
 </body>
+
 </html>
