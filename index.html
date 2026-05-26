@@ -733,52 +733,65 @@
 
   /* MOBILE CONTACT FIX */
 
+/* MOBILE CONTACT FIX */
+
 .contact-card {
 
-  padding: 22px 16px;
+  padding: 18px 10px;
 }
 
 .ct-row {
 
-  grid-template-columns: 60px 1fr;
+  display: grid;
 
-  gap: 14px;
+  grid-template-columns: 52px minmax(0, 1fr);
 
-  padding: 18px 14px;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 16px 12px;
 
   overflow: hidden;
 }
 
+.ct-row div:last-child {
+
+  min-width: 0;
+}
+
 .ct-val {
 
-  font-size: 15px;
+  font-size: 14px;
 
-  line-height: 1.5;
+  line-height: 1.45;
 
   word-break: break-word;
 
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+
+  white-space: normal;
 }
 
 .ct-lbl {
 
-  font-size: 12px;
+  font-size: 11px;
 
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 .ct-ico {
 
-  width: 58px;
+  width: 52px;
 
-  height: 58px;
+  height: 52px;
 }
 
 .ct-ico svg {
 
-  width: 24px;
+  width: 22px;
 
-  height: 24px;
+  height: 22px;
 }
   </style>
 
